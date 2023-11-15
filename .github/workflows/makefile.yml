@@ -1,0 +1,25 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Clone Buildroot repo
+      run: git clone git://git.buildroot.net/buildroot
+       
+    - name: Clone external MIDAS repo
+      run: git clone https://github.com/fourkbomb/buildroot-external-midas
+
+    - name: Compile
+      run: make -C buildroot O=$PWD/output BR2_EXTERNAL=$PWD/buildroot-external-midas samsung_midas_defconfig
+      
