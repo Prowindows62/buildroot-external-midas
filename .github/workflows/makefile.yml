@@ -27,6 +27,4 @@ jobs:
       uses: actions/upload-artifact@v3.1.3
       with:
        name: buildroot-midas-exynos4412-${{github.sha}}
-       path: |
-          ../output/images/bootloader.bin
-          ../output/images/boot.itb
+       path: ${{ github.workspace }}
