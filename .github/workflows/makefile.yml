@@ -28,5 +28,5 @@ jobs:
       with:
        name: buildroot-midas-exynos4412-${{github.sha}}
        path: |
-          output/images/bootloader.bin
-          output/images/boot.itb
+          ../output/images/bootloader.bin
+          ../output/images/boot.itb
